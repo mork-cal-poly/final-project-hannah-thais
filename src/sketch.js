@@ -29,13 +29,16 @@ function draw() {
   else if (scene === 4) {
     //clean pond
     drawCleanLily();
+  }
+  else if (scene === 5) {
+     //clean pond
+     drawCleanLily();
     // Fish drawing
     Fish();
  for (let count = 0; count < 6; count++) {
   Fish(random(width), random(height), 20);
   frameRate(1.5);
 }
-    
   }
 }
 
@@ -85,6 +88,9 @@ function mouseClicked() {
       flowers [i] = random(height);
       i++;
     }
+  }
+  else if (scene === 4) {
+    scene = 5;
   }
 }
 
