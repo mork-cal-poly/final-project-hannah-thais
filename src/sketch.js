@@ -42,9 +42,12 @@ function draw() {
   Fish(random(width), random(height), 20);
   frameRate(1.5);
 }
+  
 drawFrog();
   }
+
 }
+
 
 function drawBackground() {
   background(200, 220, 180); 
@@ -95,6 +98,14 @@ function mouseClicked() {
   }
   else if (scene === 4) {
     scene = 5;
+  }
+  if (
+    mouseX >= 280 &&
+    mouseX <= 400 &&
+    mouseY >= 280 &&
+    mouseY <= 360
+  ) {
+    scene = 3; // Change scene to 3
   }
   else if (scene === 5) {
     // Move the frog to the clicked position
@@ -198,6 +209,10 @@ let sLily = [];
     quad(280, 340, 310, 295, 390, 280, 400, 360);
     quad(160, 380, 130, 330, 170, 340, 190, 360);
     quad(200, 140, 220, 85, 272, 90, 272, 140);
+    fill(255);
+  textSize(10);
+  text("Click Me", 345, 340);
+  
   }
 
   // Flower drawing
