@@ -22,7 +22,21 @@ function draw() {
     // Scene 2: Blue background
     background(0, 0, 255);
   }
-  drawLily();
+  else if (scene === 3 ) {
+    //dirty pond
+    drawDirtyLily();
+  }
+  else if (scene === 4) {
+    //clean pond
+    drawCleanLily();
+    // Fish drawing
+    Fish();
+ for (let count = 0; count < 6; count++) {
+  Fish(random(width), random(height), 20);
+  frameRate(1.5);
+}
+    
+  }
 }
 
 function drawBackground() {
@@ -75,7 +89,7 @@ function mouseClicked() {
 }
 
   
-function drawLily(){
+function drawDirtyLily(){
   let xLily = [163, 22, 347, 55, 289, 97, 204, 381, 68, 134, 317, 291, 90, 225, 11,];
 let yLily = [49, 306, 245, 88, 172, 384, 203, 57, 298, 119, 375, 30, 196, 300, 363,];
 let rLily;
