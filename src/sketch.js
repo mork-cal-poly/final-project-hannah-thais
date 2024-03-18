@@ -43,10 +43,10 @@ function draw() {
   frameRate(1.5);
 }
   
-drawFrog();
+    drawFrog();
   }
 
-}
+  }
 
 
 function drawBackground() {
@@ -214,7 +214,7 @@ let sLily = [];
   text("Click Me", 345, 340);
   
   }
-
+  
   // Flower drawing
   for (let count = 0; count < 6; count++) {
     drawMainFlower(flowers[2*count], flowers[2*count+1], 20);
@@ -311,4 +311,3 @@ circle(10, -2, 5);
 pop();
 
 }
-
