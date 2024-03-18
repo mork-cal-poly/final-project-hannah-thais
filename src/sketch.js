@@ -1,6 +1,9 @@
 let scene = 1;
 let buttonX, buttonY, buttonWidth, buttonHeight;
 let flowers;
+let frogX = 200;
+let frogY = 300;
+let frogSize = 30;
 
 function setup() {
   // For ordering nodes in the DOM
@@ -39,6 +42,7 @@ function draw() {
   Fish(random(width), random(height), 20);
   frameRate(1.5);
 }
+drawFrog();
   }
 }
 
@@ -91,6 +95,24 @@ function mouseClicked() {
   }
   else if (scene === 4) {
     scene = 5;
+  }
+  else if (scene === 5) {
+    // Move the frog to the clicked position
+    if (dist(mouseX, mouseY, frogX, frogY) < frogSize / 2) {
+      // Move the frog to a random position
+      frogX = random(width);
+      frogY = random(height);
+    }
+
+    for (let i = 0; i < flowers.length; i += 2) {
+      let flowerX = flowers[i];
+      let flowerY = flowers[i + 1];
+      if (dist(mouseX, mouseY, flowerX, flowerY) < 20) {
+        // Move the whiteflower to a random position
+        flowers[i] = random(width);
+        flowers[i + 1] = random(height);
+      }
+    }
   }
 }
 
@@ -222,6 +244,44 @@ function drawSecondaryFlowers(x, y, size) {
 
 }
  
+function drawFrog() {
+  fill(27, 180, 20);
+  noStroke();
+
+  // Body
+  ellipse(frogX, frogY, 50, 60);
+
+  // Legs
+  fill(27, 180, 20);
+  ellipse(frogX - 20, frogY + 20, 10, 20);
+  ellipse(frogX + 20, frogY + 20, 10, 20);
+  fill(27, 180, 20);
+  ellipse(frogX - 22, frogY + 30, 10, 5);
+  ellipse(frogX + 22, frogY + 30, 10, 5);
+  ellipse(frogX - 20, frogY + 10, 15, 15);
+  ellipse(frogX + 20, frogY + 10, 15, 15);
+
+  // Belly
+  fill(90, 217, 89);
+  ellipse(frogX, frogY, 40, 50);
+
+  // Eyes
+  fill(27, 180, 20);
+  ellipse(frogX - 12, frogY - 30, 20, 20);
+  ellipse(frogX + 12, frogY - 30, 20, 20);
+  fill(255, 255, 255);
+  ellipse(frogX - 12, frogY - 30, 12, 12);
+  ellipse(frogX + 12, frogY - 30, 12, 12);
+  fill(0); // Black color for pupils
+  ellipse(frogX - 12, frogY - 30, 8, 8);
+  ellipse(frogX + 12, frogY - 30, 8, 8);
+
+  // Nose
+  fill(0, 0, 0);
+  ellipse(frogX - 3, frogY - 22, 2, 2);
+  ellipse(frogX + 3, frogY - 22, 2, 2);
+
+}
 
 function Fish(x, y){
 push();
